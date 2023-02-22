@@ -1,7 +1,15 @@
+
 import getRickAndMortyCharacters from "../Exercises/Exercise3/getRickAndMortyCharacters";
 
-test("Function getRickAndMortyCharacters", () => {
-  expect(getRickAndMortyCharacters()).toEqual([
+test("Function getRickAndMortyCharacters", async () => {
+  const data = await getRickAndMortyCharacters([
+    "Rick Sanchez",
+    "Morty Smith",
+    "Summer Smith",
+    "Beth Smith",
+    "Jerry Smith",
+  ]);
+  expect(data).toEqual([
     {
       nome: "Rick Sanchez",
       genero: "Homem",
