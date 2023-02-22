@@ -4,5 +4,4 @@ function maskify(string: string): string {
   return maskedString + unmasked4LastChars;
 }
 
-// module.exports = maskify;
 export default maskify;

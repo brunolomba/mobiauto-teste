@@ -3,36 +3,29 @@ import axios from "axios";
 const baseURL = "https://rickandmortyapi.com/api/character/";
 
 const selectedCharacters: string[] = [
-  "rick",
-  "morty",
-  "summer",
-  "beth",
-  "jerry",
+  "Rick Sanchez",
+  "Morty Smith",
+  "Summer Smith",
+  "Beth Smith",
+  "Jerry Smith",
 ];
 
-function getRickAndMortyCharacters() {
-  const arrayCharactersFiltred: any = [];
-  try {
+async function getRickAndMortyCharacters(selectedCharacters: string[]) {
+  const filteredCharacterData: object[] = [];
     for (const character of selectedCharacters) {
-      axios
+      await axios
         .get(`${baseURL}?name=${character}&status=alive`)
         .then((response) => {
-          const characterBase = response.data.results[0];
-          arrayCharactersFiltred.push({
-            nome: characterBase.name,
-            genero: characterBase.gender,
-            avatar: characterBase.image,
-            especie: characterBase.species,
+          const characterData = response.data.results[0];
+          filteredCharacterData.push({
+            nome: characterData.name,
+            genero: characterData.gender === "Female" ? "Mulher" : "Homem",
+            avatar: characterData.image,
+            especie: characterData.species === "Human" ? "Humano" : "",
           });
         });
     }
-    console.log("resp", arrayCharactersFiltred);
-    return <div>teste</div>;
-  } catch (error) {
-    console.error(error);
-  }
+  return filteredCharacterData;
 }
 
-getRickAndMortyCharacters();
-// module.exports = getRickAndMortyCharacters;
 export default getRickAndMortyCharacters;

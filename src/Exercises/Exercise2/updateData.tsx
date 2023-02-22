@@ -2,10 +2,14 @@ type ObjectData = {
   [key: string]: string;
 };
 
+type ObjectDataUpdated = {
+  [key: string]: string;
+};
+
 function updateData(
   currentObject: ObjectData,
   newDataObject: ObjectData
-): ObjectData {
+): ObjectDataUpdated {
   for (const key in newDataObject) {
     if (currentObject[key] !== undefined) {
       currentObject[key] = newDataObject[key];
@@ -15,5 +19,4 @@ function updateData(
   return currentObject;
 }
 
-// module.exports = updateData;
 export default updateData;
