@@ -59,7 +59,6 @@ const styled: Styled = {
     marginTop: "10px",
     padding: "7px 30px",
     fontWeight: "700",
-    backgroundColor: "#5d00c0",
     textTransform: "lowercase"
   },
   buttonDisabled: {
