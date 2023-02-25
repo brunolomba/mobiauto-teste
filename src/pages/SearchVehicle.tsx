@@ -68,13 +68,6 @@ const styled: Styled = {
     backgroundColor: "#d9d9d9",
     color: "#a1a1a1",
     textTransform: "lowercase"
-  },
-  containerResult: {
-    margin: "0 auto",
-    padding: "40px",
-    textAlign: "center",
-    width: "100%",
-    backgroundColor: "#dcf5f2",
   }
 }
 
@@ -148,7 +141,7 @@ export default function SearchVehicle() {
     } else {
       setYears([]);
     }
-  }, [selectedModel]);
+  }, [selectedBrand, selectedModel]);
 
   useEffect(() => {
     if (selectedBrand && selectedModel && selectedYear) {
@@ -163,14 +156,17 @@ export default function SearchVehicle() {
     } else {
       setSearchedVehicleResult({});
     }
-  }, [selectedYear]);
+  }, [selectedBrand, selectedModel, selectedYear]);
 
   const handleBrandChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setSelectedBrand(event.target.value as string);
+    setSelectedModel(null);
+    setSelectedYear(null)
   };
 
   const handleModelChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setSelectedModel(event.target.value as string);
+    setSelectedYear(null)
   };
 
   const handleYearChange = (event: React.ChangeEvent<{ value: unknown }>) => {
@@ -178,19 +174,18 @@ export default function SearchVehicle() {
   };
 
   const handleButtonSubmit = () => {
-    console.log(searchedVehicleResult);
     setShowPriceResult(true);
   };
 
   return (
     <>
       <div className={styles.containerTexts}>
-      <Typography variant="h1" style={styled.h1}>
-        Tabela Fipe
-      </Typography>
-      <Typography variant="body1" style={styled.body1}>
-        Consulte o valor de um veículo de forma gratuita
-      </Typography>
+        <Typography variant="h1" style={styled.h1}>
+          Tabela Fipe
+        </Typography>
+        <Typography variant="body1" style={styled.body1}>
+          Consulte o valor de um veículo de forma gratuita
+        </Typography>
       </div>
       <div className={styles.containerSelects}>
         <FormControl fullWidth variant="filled">
@@ -263,7 +258,13 @@ export default function SearchVehicle() {
         </Box>
       </div>
       {showPriceResult && (
-        <Box style={styled.containerResult}>
+        <Box sx = {{
+          margin: "0 auto",
+          padding: "40px",
+          textAlign: "center",
+          width: "100%",
+          backgroundColor: "#dcf5f2",
+        }}>
           <Typography variant="h2" style={styled.h2}>
           {`Tabela Fipe: Preço ${searchedVehicleResult.Marca} ${searchedVehicleResult.Modelo} ${searchedVehicleResult.AnoModelo}`}
           </Typography>
