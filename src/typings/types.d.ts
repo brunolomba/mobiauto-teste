@@ -1,17 +1,22 @@
-export type Brand = {
+type DataFormat = {
   nome: string;
   codigo: string;
 };
+
+export type Brand = DataFormat
+
+export type BrandsByType = {
+  carros: Brand[],
+  motos: Brand[],
+  caminhoes: Brand[]
+}
 
 export type Model = {
-  nome: string;
-  codigo: string;
-};
+  anos: [ DataFormat ],
+  modelos: [ DataFormat ]
+}
 
-export type Year = {
-  nome: string;
-  codigo: string;
-};
+export type Year = [ DataFormat ]
 
 export type SearchedVehicleResult = {
   AnoModelo?: string;
@@ -19,3 +24,9 @@ export type SearchedVehicleResult = {
   Modelo?: string;
   Valor?: string;
 };
+
+export type Styled = {
+  [key: string]: {
+    [key: string]: string
+  }
+}
