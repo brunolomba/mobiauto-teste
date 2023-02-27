@@ -1,5 +1,5 @@
 
-import getRickAndMortyCharacters from "../Exercises/Exercise3/getRickAndMortyCharacters";
+import getRickAndMortyCharacters from "../Exercise3/getRickAndMortyCharacters";
 
 test("Function getRickAndMortyCharacters", async () => {
   const data = await getRickAndMortyCharacters([

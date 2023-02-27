@@ -16,27 +16,25 @@ const styled: Styled = {
   }
 }
 
-export default function SelectModel() {
+export default function SelectYear() {
   const {
-    models,
-    selectedModel,
-    setSelectedModel,
+    years,
+    selectedYear,
     setSelectedYear
   } = useContext(SearchContext)
 
-  const handleModelChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setSelectedModel(event.target.value as string);
-    setSelectedYear("")
+  const handleYearChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setSelectedYear(event.target.value as string);
   };
 
   return (
     <FormControl fullWidth variant="filled">
-      <InputLabel>Modelo</InputLabel>
-      <Select native value={selectedModel} onChange={handleModelChange} style={styled.select}>
+      <InputLabel>Ano</InputLabel>
+      <Select native value={selectedYear} onChange={handleYearChange} style={styled.select}>
         <option value=""></option>
-        {models.modelos?.map((modelo) => (
-          <option key={`modelCode-${modelo.codigo}`} value={modelo.codigo}>
-            {modelo.nome}
+        {years?.map((year) => (
+          <option key={year.codigo} value={year.codigo}>
+            {year.nome}
           </option>
         ))}
       </Select>

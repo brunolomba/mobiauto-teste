@@ -1,4 +1,4 @@
-import checkIfTheFirstLetterIsUppercase from "../Exercises/Exercise4/checkIfTheFirstLetterIsUppercase";
+import checkIfTheFirstLetterIsUppercase from "../Exercise4/checkIfTheFirstLetterIsUppercase";
 
 test("Function checkIfTheFirstLetterIsUppercase", () => {
   expect(checkIfTheFirstLetterIsUppercase("Brasil")).toBe(true);

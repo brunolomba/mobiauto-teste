@@ -1,4 +1,4 @@
-import updateData from "../Exercises/Exercise2/updateData";
+import updateData from "../Exercise2/updateData";
 
 test("Function updateData", () => {
   expect(

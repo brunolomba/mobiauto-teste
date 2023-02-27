@@ -5,7 +5,6 @@ import {
 } from "@material-ui/core";
 import { useContext} from "react";
 import { SearchContext } from "@/context/SearchContext";
-
 import { Styled } from "../../typings/types";
 
 const styled: Styled = {

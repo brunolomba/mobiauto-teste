@@ -1,4 +1,4 @@
-import maskify from "../Exercises/Exercise1/maskify";
+import maskify from "../Exercise1/maskify";
 
 test("Function maskify", () => {
   expect(maskify("4556364607935616")).toBe("############5616");

@@ -55,7 +55,6 @@ export default function Result() {
       )
     }
   }, [selectedBrandCode, selectedModel, selectedYear]);
-  console.log(selectedBrandCode)
   
   return (
     <Box style = {styled.containerResult}>
