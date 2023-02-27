@@ -33,13 +33,48 @@ export const SearchContext = createContext<SearchContext>(
   {} as SearchContext
 );
 
-export const SearchProvider: React.FC = ({ children }: any) => {
-  const [brandsByType, setBrandsByType] = useState<BrandsByType>({});
+type SearchProviderProps = {
+  children: React.ReactNode;
+}
+
+export const SearchProvider: React.FC<SearchProviderProps> = ({ children }) => {
+  const [brandsByType, setBrandsByType] = useState<BrandsByType>(
+    {
+      carros: [{
+        nome: "",
+        codigo: ""
+      }],
+      motos: [{
+        nome: "",
+        codigo: ""
+      }],
+      caminhoes: [{
+        nome: "",
+        codigo: ""
+      }]
+    }
+  );
   const [selectedVehicleType, setSelectedVehicleType] = useState("");
   const [selectedBrandCode, setSelectedBrandCode] = useState("");
-  const [models, setModels] = useState<Model>({});
+  const [models, setModels] = useState<Model>(
+    {
+      anos: [{
+        nome: "",
+        codigo: ""
+      }],
+      modelos: [{
+        nome: "",
+        codigo: ""
+      }],
+    }
+  );
   const [selectedModel, setSelectedModel] = useState("");
-  const [years, setYears] = useState<Year>([]);
+  const [years, setYears] = useState<Year>(
+    [{
+      nome: "",
+      codigo: ""
+    }]
+  );
   const [selectedYear, setSelectedYear] = useState("");
   const [searchedVehicleResult, setSearchedVehicleResult] = useState<
     SearchedVehicleResult

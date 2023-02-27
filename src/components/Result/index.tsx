@@ -5,6 +5,13 @@ import { Styled } from '@/typings/types'
 import { fetchPrice } from '@/utils/fetchPrice'
 
 const styled: Styled = {
+  containerResult: {
+    margin: "0 auto",
+    padding: "40px 0",
+    textAlign: "center",
+    width: "100%",
+    bgcolor: "#dcf5f2",
+  },
   h2: {
     fontSize: "25px",
     fontWeight: "700",
@@ -51,20 +58,14 @@ export default function Result() {
   console.log(selectedBrandCode)
   
   return (
-    <Box sx = {{
-      margin: "0 auto",
-      padding: "40px 0",
-      textAlign: "center",
-      width: "100%",
-      bgcolor: "#dcf5f2",
-    }}>
+    <Box style = {styled.containerResult}>
       <Typography variant="h2" style={styled.h2}>
         {`Tabela Fipe: Preço ${searchedVehicleResult?.Marca} ${searchedVehicleResult?.Modelo} ${searchedVehicleResult?.AnoModelo}`}
-        </Typography>
-        <Typography variant="h2" style={styled.price}>
+      </Typography>
+      <Typography variant="h2" style={styled.price}>
         {searchedVehicleResult?.Valor}
-        </Typography>
-        <Typography variant="caption" style={styled.smallText}>
+      </Typography>
+      <Typography variant="caption" style={styled.smallText}>
           Este é o preço de compra do veículo
       </Typography>
     </Box>

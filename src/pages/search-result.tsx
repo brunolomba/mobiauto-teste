@@ -2,14 +2,15 @@ import { SearchProvider } from '@/context/SearchContext'
 import { Styled } from '@/typings/types'
 import Head from 'next/head'
 import Result from '../components/Result'
+import "../styles/Home.module.css"
 
 const styled: Styled = {
   containerTextsResult: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "100vh",
-    width: "100vw",
+    height: "100%",
+    width: "100%",
     margin: "0 auto",
     fontFamily: "Roboto, sans-serif",
     textAlign: "center",
